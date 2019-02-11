@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A simple function to add 2 numbers
+Resources:
+  GetSum:
+    Properties:
+      CodeUri: s3://fq-fq2-sam-packages-poc/3f9bf91666841516c5b084c7e4f86630
+      Events:
+        GetSum:
+          Properties:
+            Method: GET
+            Path: /
+          Type: Api
+      Handler: index.handler
+      Runtime: nodejs8.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

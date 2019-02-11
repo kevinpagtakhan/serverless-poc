@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: A simple function to add 2 numbers
+
+Resources:
+  GetSum:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs8.10
+      Handler: index.handler
+      CodeUri: ./lambda/sum
+      Events:
+        GetSum:
+          Type: Api
+          Properties:
+            Path: /
+            Method: GET
